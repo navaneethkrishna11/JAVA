@@ -25,6 +25,8 @@ public class Armstrong {
 }
 
 /*
+OUTPUT
+------
 enter the number
 153
 armstrong
