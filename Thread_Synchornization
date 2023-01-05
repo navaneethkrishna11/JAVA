@@ -1,0 +1,78 @@
+import java.util.*;
+
+class AdditionTable extends Thread{
+	synchronized void AddTable(int n) {
+		for(int i=0;i<10;i++)
+		{
+			System.out.println(n+"+"+i+"="+(n+i));
+		}
+	}
+}
+
+class AdditionTable1 extends Thread{
+	AdditionTable t;
+	int n;
+	AdditionTable1(AdditionTable t){
+		this.t=t;
+	}
+	public void run()
+	{
+		t.AddTable(n);
+	}
+}
+
+class AdditionTable2 extends Thread{
+	AdditionTable t;
+	int n;
+	AdditionTable2(AdditionTable t){
+		this.t=t;
+		}
+	public void run() {
+		t.AddTable(n);
+	}
+	
+}
+public class ThreadSynchronization1 {
+
+	public static void main(String[] args) {
+		Scanner src=new Scanner (System.in);
+		AdditionTable a =new AdditionTable();
+		AdditionTable1 a1= new AdditionTable1(a);
+		AdditionTable2 a2 = new AdditionTable2(a);
+		a1.n=src.nextInt();
+		a2.n=src.nextInt();
+		a1.start();
+		a2.start();
+		
+		
+
+	}
+
+}
+
+
+/*
+OUTPUT
+-------
+4 6
+4+0=4
+4+1=5
+4+2=6
+4+3=7
+4+4=8
+4+5=9
+4+6=10
+4+7=11
+4+8=12
+4+9=13
+6+0=6
+6+1=7
+6+2=8
+6+3=9
+6+4=10
+6+5=11
+6+6=12
+6+7=13
+6+8=14
+6+9=15
+*/
