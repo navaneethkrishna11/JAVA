@@ -1,0 +1,16 @@
+// smallest number in an array
+public class Smallest_in_array {
+
+	public static void main(String[] args) {
+
+		   int ar[]=new int [] {32,2,31,34,24};	
+		   int min=ar[0];
+		   for(int i=0;i<ar.length;i++)
+		   {
+			   if(ar[i]<min)
+				   min=ar[i];
+		   }
+		   System.out.println(+min);
+	}
+
+}
