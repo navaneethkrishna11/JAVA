@@ -1,0 +1,71 @@
+// Program for converting celsius into farhenheit
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+class Pratice_q implements ActionListener{
+	
+	JButton r1;
+	JTextField tf;
+	JPanel p;
+	JFrame f;
+	JTextField tf2;
+	JLabel l;
+	
+	
+	Pratice_q()
+	{
+		f=new JFrame("pratice_q");
+		tf=new JTextField(10);
+		l=new JLabel("enter the value ");
+		l.setBounds(100,100,20,20);
+		tf.setBounds(200, 200, 160, 60);
+		 tf2=new JTextField(10);
+		tf2.setBounds(100, 120, 30, 30);
+	
+		
+		
+		r1=new JButton("convert");
+		r1.setBounds(20, 20, 10, 10);
+		p=new JPanel();
+	
+		p.add(l);
+		p.add(tf2);
+		p.add(tf);
+		p.add(r1);
+		f.setContentPane(p);
+		f.setVisible(true);
+		f.setSize(500, 500);
+		f.setLayout(null);
+		r1.addActionListener(this);
+		
+	}
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==r1)
+		{
+			String s =tf2.getText();
+			int r = (int)((int)Double.parseDouble(s)*1.8+32);
+			
+			String q = Integer.toString(r);
+			tf.setText(q);
+		}
+	
+		
+		
+	}
+public static void main(String[] args) {
+
+	 new Pratice_q();
+	 
+
+	  
+	  
+	  
+}
+
+
+
