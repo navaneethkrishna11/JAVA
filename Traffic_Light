@@ -1,0 +1,101 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+public class Traffic_Light extends JPanel implements ActionListener{
+	JRadioButton r1,r2,r3;
+	Color reda,greena,yellowa;
+	public Traffic_Light()
+	{
+		
+		
+		r1=new JRadioButton("red");
+		r1.setBounds(100, 100, 30, 30);
+		
+		r2=new JRadioButton("green");
+		r2.setBounds(100, 120, 30, 30);
+		r3=new JRadioButton("yellow");
+		r3.setBounds(100, 140, 30, 30);
+		
+		r1.setSelected(true);
+		reda=Color.red;
+		greena=getBackground();
+		yellowa=getBackground();
+		
+		ButtonGroup b =new ButtonGroup();
+		b.add(r1);
+		b.add(r2);
+		b.add(r3);
+		
+		
+		add(r1);
+		add(r2);
+		add(r3);
+		r1.addActionListener(this);
+		r2.addActionListener(this);
+		r3.addActionListener(this);
+		
+		
+	}
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		if(r1.isSelected()==true)
+		{
+			reda=Color.red;
+			greena=getBackground();
+			yellowa=getBackground();
+			
+		}else
+			if(r2.isSelected()==true)
+					{
+				greena=Color.green;
+				reda=getBackground();
+				yellowa=getBackground();
+					}
+			else
+				if(r3.isSelected()==true)
+				{
+			yellowa=Color.yellow;
+			reda=getBackground();
+			greena=getBackground();
+				}
+		repaint();
+		
+	}
+
+	public void paint(Graphics g)       //here paint is must needed to put with (Graphics g) otherwise the oval will not display
+	{
+		super.paint(g);                   //if super does not used then the buttons will float in GUI.
+		g.drawOval(200, 100, 50, 50);
+		g.drawOval(200, 150, 50, 50);
+		g.drawOval(200, 200, 50, 50);
+		
+		
+		g.setColor(reda);
+		g.fillOval(200, 100, 50, 50);
+		
+		g.setColor(yellowa);
+		g.fillOval(200, 150, 50, 50);
+		
+		g.setColor(greena);
+		g.fillOval(200, 200, 50, 50);
+	}
+
+
+	
+
+
+public static void main(String[] args) {
+	Traffic_Light T =new Traffic_Light();
+	JFrame f = new JFrame("Trafficc");
+	
+	
+	f.setSize(500, 500);
+	f.setVisible(true);
+    f.add(T);
+
+}
+}
