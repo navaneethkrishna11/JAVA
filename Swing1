@@ -46,12 +46,7 @@ public class Swing1 implements ActionListener{
 				String s=t1.getText();
 				int n=Integer.parseInt(s);
 				int sum=0;
-				//while(n<0)
-				//{
-					sum=n+1;
-					//n++;
-				//}
-					//int sum1=sum;
+			        sum=n+1;
 				String r=Integer.toString(sum);
 				t1.setText(r);
 			}
